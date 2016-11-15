@@ -2,13 +2,15 @@ main .new-tweet {
   border-radius: 10px;
   margin: 0em 2em;
   background-color: #d3d3d3;
-  padding: .2em 1em;
+  padding: 0.5em 1em;
+  border: solid #a9a9a9;
 }
 
 .new-tweet textarea {
-  border-radius: 10px;
   width: 100%;
   margin: auto;
+  height: 5em;
+  padding: .3em;
 
 }
 
@@ -17,6 +19,14 @@ main h2 {
 }
 
 main .counter {
+  /*need to find out how to center the text on tweet*/
   float: right;
-  font-size: 15px
+  font-size: 1em;
+  text-align: center;
+  color: blue;
+}
+
+main .form .input {
+  float: left
+
 }

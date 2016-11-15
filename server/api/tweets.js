@@ -2,11 +2,12 @@
 
 const User    = require("../lib/user-helper")
 const express = require('express');
-const tweets  = express.Router();
+const tweets  = express.Router();//???
 
 module.exports = function(db) {
 
   tweets.get("/", function(req, res) {
+    //what is this getTweets() function?
     let tweets = db.getTweets();
     // simulate delay
     setTimeout(() => {
@@ -35,3 +36,5 @@ module.exports = function(db) {
   return tweets;
 
 }
+
+
