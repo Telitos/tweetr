@@ -1,0 +1,24 @@
+#nav-bar {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 80px;
+  background-color: #00a087;
+  color: #e8fdff;
+  padding: 0px 50px}
+
+
+#nav-bar .logo {
+  float: left;
+  width: 80px;
+  height: 80px;
+}
+
+#nav-bar .header{
+  position: relative;
+  float: left;
+  left: 10px;
+  /*I use relative positionning instead of a 10px left padding, double check on that. */
+  line-height: 80px;
+  font-size: 2em;
+}
