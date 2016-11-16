@@ -30,3 +30,7 @@ main .form .input {
   float: left
 
 }
+
+main .counter.over{
+color: red;
+}
