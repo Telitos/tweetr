@@ -1,6 +1,7 @@
 main .new-tweet {
+  width: 45em;
   border-radius: 10px;
-  margin: 0em 2em;
+  margin: 0em auto;
   background-color: #d3d3d3;
   padding: 0.5em 1em;
   border: solid #a9a9a9;
@@ -20,11 +21,11 @@ main h2 {
 }
 
 main .counter {
-  /*need to find out how to center the text on tweet*/
+  /*need to find out how to center the text on tweet. try relative*/
   float: right;
   font-size: 1em;
   text-align: center;
-  color: blue;
+/*  color: blue;*/
 }
 
 main .form .input {
@@ -33,5 +34,5 @@ main .form .input {
 }
 
 main .counter.over{
-color: red;
+  color: red;
 }

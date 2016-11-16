@@ -5,15 +5,13 @@ $(function() {
 
   $("main.container textarea").keydown(function() {
 
-console.log('sup')
 
-    let start = 140
+    const start = 140
     //the timeout here makes sure that the first iteration
     // of the loop only occurs once the dom has been updated
 
     setTimeout(() => {
       let charNumber = $(this).val().length
-      console.log("length:", charNumber)
       let counter = start - charNumber
       //Find a way to store the element $(this).siblings('/coutner')
       //into a variable. Why did it not work?

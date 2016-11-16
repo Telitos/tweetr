@@ -21,13 +21,15 @@ body {
   background-color: #eee;
 }
 
-main {
+main.container {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
-  padding-top: 50px;
-  width: 450px;
-  height: 1000px;
+  padding-top: 3em;
+  width: 50em;
+  height: 100em;
   background: white;
-  margin: 100px auto ;
+  margin: 10em auto ;
 }
 
 /*
