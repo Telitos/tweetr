@@ -1,17 +1,12 @@
 "use strict"
 
+//function to change style on hover state, which isnt't actually needed because CSS can do it itself.
 
-$(function() {
+// $(function() {
 
-  $("#all-weets .tweet").hover(function() {
-    $(this).addClass('hover')
-
-
-
-    //   ($(this).siblings('.counter').text() < 1) {
-    //   $(this).siblings('.counter').css("color","red")
-    // } else {
-    //   $(this).siblings('.counter').css("color","blue")
-    // }
-  // }
-})
+//   $("#all-tweets .tweet").hover(function() {
+//     $(this).addClass('hover')
+//   }, function(){
+//     $(this).removeClass('hover')
+//   })
+// })

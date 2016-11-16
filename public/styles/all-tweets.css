@@ -10,11 +10,14 @@
   height: 13em;
 }
 
+#all-tweets .tweet:hover {
+  border-color: #000080;
+}
+
 #all-tweets .tweet header {
   display: flex;
   flex-direction: row;
-  align-items: center
-  justify-content: space-around;
+  align-items: center;
   /*float : top;*/
   order: 1;
   width: 100%;
@@ -30,6 +33,8 @@
 
 #all-tweets .tweet footer {
   /*float : bottom;*/
+  display: flex;
+  align-items: center;
   order: 3;
   width: 100%;
   flex-grow: 1;
@@ -89,6 +94,24 @@
 #all-tweets .tweet header .user-info {
   order: 3;
   flex-grow: 1;
-  margin: auto .5em auto auto;
+  margin-right: .5em;
 
+}
+
+#all-tweets .tweet footer ._from {
+  flex-grow: 1;
+  /*float: left;*/
+  margin: auto;
+}
+
+#all-tweets .tweet footer i {
+  visibility: hidden;
+  flex-grow: 0;
+  margin: .2em;
+  font-size: 20px;
+  color: #00a087 ;
+}
+
+#all-tweets .tweet:hover footer i {
+  visibility: visible;
 }
