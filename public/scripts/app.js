@@ -13,7 +13,8 @@ const renderTweets = function (tweets) {
 
   tweets.forEach(function(tweet) {
     const $tweet = createTweetElement(tweet)
-    $('#all-tweets').append($tweet);
+    console.log($tweet)
+    $('#all-tweets').prepend($tweet);
   })
   // loops through tweets
     // calls createTweetElement for each tweet
