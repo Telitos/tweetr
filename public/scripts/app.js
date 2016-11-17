@@ -74,44 +74,43 @@ const uploadTweets = function() {
       $('textarea').addClass('error')
 
       setTimeout(() => {
-      $('textarea').removeClass('error')
-    }, 150)
+        $('textarea').removeClass('error');
+      }, 150)
+      // setTimeout(() => {
+      //   $('textarea').val("")
+      // }, 1000)
       // more code needed here
     } else {
       $.ajax({
         url: "/tweets",
         method: "POST",
         data:  text,
-        success: function(data, status) {
-          const statusCode = true
-          clearTweets(statusCode)
+        success: function() {
+          loadTweets()
+          $("textarea").val("")
           console.log("POST request made for tweet:", text)
-          console.log("status of request:", statusCode)
-      }
-    });
+        }
+      });
     }
   })
 }
 // when do you load the tweets? clear page first? then load tweets?
-const clearTweets = function(postStatus) {
-  if (postStatus) {
+const clearTweets = function() {
     let $section = $("main.container #all-tweets")
-    $section = ""
-    console.log("tweets cleared")
-    loadTweets()
+    $section.html("")
   }
-}
 
 const loadTweets = function () {
   $.get("/tweets", function(data) {
-  renderTweets(data)
-  console.log("tweets loaded!")
+    clearTweets()
+    renderTweets(data)
+    console.log("tweets loaded!")
   })
 }
 
 $('document').ready(function() {
 
 uploadTweets()
-// loadTweets()
+loadTweets()
 
 })

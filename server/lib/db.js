@@ -14,7 +14,7 @@ const dbMethods = {
 
   getTweets: () => {
     // sorts tweets in chron. order.// I'm going to reverse this just to see what happens
-    return db.tweets.sort(function(a, b) { return a.created_at - b.created_at });
+    return db.tweets.sort(function(a, b) { return b.created_at - a.created_at });
   }
 
 }

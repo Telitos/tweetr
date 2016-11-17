@@ -1,4 +1,6 @@
 #nav-bar {
+  display: flex;
+  align-items: center;
   position: fixed;
   top: 0px;
   width: 100%;
@@ -9,16 +11,51 @@
 
 
 #nav-bar .logo {
-  float: left;
+  order: 1;
+  flex-grow: 0;
   width: 80px;
   height: 80px;
 }
 
-#nav-bar .header{
+#nav-bar .header {
+  order: 2;
+  flex-grow: 1;
   position: relative;
-  float: left;
   left: 10px;
-  /*I use relative positionning instead of a 10px left padding, double check on that. */
   line-height: 80px;
   font-size: 2em;
+}
+
+#nav-bar .button {
+  display: flex;
+  align-items: center;
+  flex-grow: 0;
+  order: 3;
+  border-radius: .2em;
+  border: solid;
+  border-width: .001em;
+  opacity: 0.9;
+}
+
+#nav-bar .button:hover {
+  opacity: 1;
+}
+
+#nav-bar .button i {
+  flex-grow: 0;
+  order: 1;
+  margin-right: 0.2em;
+}
+
+#nav-bar .button .content {
+  flex-grow: 1;
+  order: 2;
+}
+
+#nav-bar .button:hover .content {
+  color: #00a087;
+}
+
+#nav-bar .button:hover i {
+  color: #00a087;
 }
