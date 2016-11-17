@@ -1,0 +1,4 @@
+1 - Clear textarea each time you hit submit.
+2 - implement user message status in case of error.
+3 - to toggle form, think about using display: none css property.
+4 - Could I set a timeout to fetch the rest of the tweets instead?

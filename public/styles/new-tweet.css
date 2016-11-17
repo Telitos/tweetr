@@ -16,6 +16,12 @@ main .new-tweet {
 
 }
 
+.new-tweet textarea.error {
+box-shadow: 0px 0px 35px -4px rgba(255,0,64,0.81);;
+}
+
+
+
 main h2 {
   border-bottom: solid;
 }

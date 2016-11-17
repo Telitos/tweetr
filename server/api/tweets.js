@@ -9,7 +9,7 @@ module.exports = function(db) {
   tweets.get("/", function(req, res) {
     //what is this getTweets() function?
     let tweets = db.getTweets();
-    // simulate delay
+    // simulate delay (why simulate delay? try playing around with it)
     setTimeout(() => {
       return res.json(tweets);
     }, 300);
@@ -22,6 +22,7 @@ module.exports = function(db) {
     }
 
     const user = req.body.user ? req.body.user : User.generateRandomUser();
+    //is the line above just faking, since we do not have any registered users?
     const tweet = {
       user: user,
       content: {
