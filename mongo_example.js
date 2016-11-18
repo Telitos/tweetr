@@ -16,7 +16,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
       if (err) {
         return callback(err)
       }
-      callback(null, tweets)
+      callback(null, results)
     })
   }
 

@@ -89,7 +89,6 @@ const uploadTweets = function() {
         success: function() {
           loadTweets()
           $("textarea").val("")
-          console.log("POST request made for tweet:", text)
         }
       });
     }
@@ -105,7 +104,6 @@ const loadTweets = function () {
   $.get("/tweets", function(data) {
     clearTweets()
     renderTweets(data)
-    console.log("tweets loaded!")
   })
 }
 
