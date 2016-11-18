@@ -13,7 +13,6 @@ const renderTweets = function (tweets) {
 
   tweets.forEach(function(tweet) {
     const $tweet = createTweetElement(tweet)
-    console.log($tweet)
     $('#all-tweets').prepend($tweet);
   })
   // loops through tweets
@@ -66,33 +65,43 @@ const uploadTweets = function() {
   let $form = $("main.container .new-tweet form")
 
   $($form).on('submit', function(event) {
+
     event.preventDefault()
 
     const char = $(this).text()
     const text = $(this).serialize()
 
-    if (char < 0 || $("textarea").val() === "") {
+    if (char < 0 ) {
       $('textarea').addClass('error')
+      $('main.container .new-tweet .error-message').text("You are over the charater limit!")
 
       setTimeout(() => {
         $('textarea').removeClass('error');
-      }, 150)
-      // setTimeout(() => {
-      //   $('textarea').val("")
-      // }, 1000)
-      // more code needed here
-    } else {
-      $.ajax({
-        url: "/tweets",
-        method: "POST",
-        data:  text,
-        success: function() {
-          loadTweets()
-          $("textarea").val("")
+      }, 200)
+      setTimeout(() => {
+        $('main.container .new-tweet .error-message').text("")
+      }, 1500)
+    } else if ($("textarea").val() === "") {
+        $('textarea').addClass('error')
+        $('main.container .new-tweet .error-message').text("You didn't write anything!")
+
+        setTimeout(() => {
+          $('textarea').removeClass('error');
+        }, 200)
+        setTimeout(() => {
+          $('main.container .new-tweet .error-message').text("")}, 1500)
+      } else {
+          $.ajax({
+            url: "/tweets",
+            method: "POST",
+            data:  text,
+            success: function() {
+              loadTweets()
+              $("textarea").val("")
+            }
+          });
         }
-      });
-    }
-  })
+      })
 }
 // when do you load the tweets? clear page first? then load tweets?
 const clearTweets = function() {

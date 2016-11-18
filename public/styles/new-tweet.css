@@ -1,4 +1,6 @@
 main .new-tweet {
+  display: flex;
+  flex-direction: column;
   display: none;
   width: 45em;
   border-radius: 10px;
@@ -9,33 +11,57 @@ main .new-tweet {
   height: 13em;
 }
 
+.new-tweet h2 {
+  border-bottom: solid;
+  flex order: 1;
+  flex-grow: 1;
+  margin: auto;
+}
+
 .new-tweet textarea {
+  order: 2;
+  flex-grow: 2;
   width: 100%;
   margin: auto;
+  margin-top: 1em;
   height: 5em;
   padding: .3em;
+}
 
+.new-tweet footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex order: 3;
+  flex-grow: 1;
+  margin: auto;
 }
 
 .new-tweet textarea.error {
-box-shadow: 0px 0px 35px -4px rgba(255,0,64,0.81);;
+  box-shadow: 0px 0px 35px -4px rgba(255,0,64,0.81);;
 }
 
-
-main h2 {
-  border-bottom: solid;
+.new-tweet .error-message {
+  order: 2;
+  flex-grow: 1;
+  margin: auto;
+  margin-left: 0.5em;
+  color: red;
 }
+
 
 main .counter {
-  /*need to find out how to center the text on tweet. try relative*/
-  float: right;
+/*  need to find out how to center the text on tweet. try relative*/
+  order: 3;
+  flex-grow: 0;
   font-size: 1em;
-  text-align: center;
-/*  color: blue;*/
+  /*text-align: center;*/
+
 }
 
 main .form .input {
-  float: left
+  order: 1;
+  flex-grow: 0;
 
 }
 

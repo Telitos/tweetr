@@ -15,12 +15,12 @@ $(function() {
       let counter = start - charNumber
       //Find a way to store the element $(this).siblings('/coutner')
       //into a variable. Why did it not work?
-      $(this).siblings('.counter').text(counter)
+      $(".counter").text(counter)
 
       if (counter < 1) {
-        $(this).siblings('.counter').addClass('over')
+        $('.counter').addClass('over')
       } else {
-        $(this).siblings('.counter').removeClass('over')
+        $('.counter').removeClass('over')
       }
     })
   })
