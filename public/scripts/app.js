@@ -7,7 +7,36 @@
 
 'use strict'
 // Test / driver code (temporary). Eventually will get this from the server.
+$('document').ready(function() {
 
+
+const timeEllapsed = function(publicationDate) {
+
+  const millisecondsEllapsed = (Date.now() - publicationDate)
+  const secondsEllpased = parseInt(millisecondsEllapsed/1000)%60
+  const minutesEllapsed = parseInt(millisecondsEllapsed/(1000*60))%60
+  const hoursEllapsed = parseInt(millisecondsEllapsed/(1000*60*60))%24
+  const daysEllapsed = parseInt(millisecondsEllapsed/(1000*60*60*24))%24
+
+  let timeEllapsed = "Posted "
+
+  if (daysEllapsed === 1) {
+    timeEllapsed += `yesterday`
+  } else if (daysEllapsed > 1) {
+    timeEllapsed += `${daysEllapsed} days ago`
+  } else if (hoursEllapsed === 1) {
+    timeEllapsed += `about an hour ago`
+  } else if (hoursEllapsed > 1) {
+    timeEllapsed += `about ${hoursEllapsed} hours ago`
+  } else if (minutesEllapsed === 1) {
+    timeEllapsed += `about a minute ago`
+  } else if (minutesEllapsed > 1) {
+    timeEllapsed += `about ${minutesEllapsed} minutes ago`
+  } else {
+    timeEllapsed += `less than a minute ago`
+  }
+  return timeEllapsed
+}
 
 const renderTweets = function (tweets) {
 
@@ -15,9 +44,6 @@ const renderTweets = function (tweets) {
     const $tweet = createTweetElement(tweet)
     $('#all-tweets').prepend($tweet);
   })
-  // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
 }
 
 
@@ -33,7 +59,7 @@ const createTweetElement = function(tweetData){
   const user = tweetData.user
   const content = tweetData.content
   const handle = tweetData.user.handle
-  const date = tweetData.created_at
+  const date = timeEllapsed(tweetData.created_at)
 
 
   let $html = $("<article>").addClass("tweet");
@@ -119,9 +145,9 @@ const loadTweets = function () {
   })
 }
 
-$('document').ready(function() {
 
 uploadTweets()
 loadTweets()
+
 
 })
