@@ -1,6 +1,7 @@
 #all-tweets .tweet {
   /*flex-grow: 1;*/
   display: flex;
+  flex: 1;
   flex-direction: column;
   border-radius: 10px;
   width: 45em;
@@ -8,11 +9,12 @@
   background-color: #d3d3d3;
   padding: 0em;
   border: solid #a9a9a9;
-  height: 13em;
+  border-width: 0.05em;
+  /*height: auto;*/
 }
 
 #all-tweets .tweet:hover {
-  border-color: #000080;
+  border-color: black;
 }
 
 #all-tweets .tweet header {
@@ -33,7 +35,6 @@
 }
 
 #all-tweets .tweet footer {
-  /*float : bottom;*/
   display: flex;
   align-items: center;
   order: 3;
@@ -42,34 +43,36 @@
   border-radius: 0px 0px 10px 10px;
   margin: auto;
   background-color: white ;
-  padding: 0.2em 0.2em;
+  padding-left: .2em;
   border-top: solid #d3d3d3;
-  /*height: 20%;*/
+  height: auto;
   text-align: left;
 }
 
-#all-tweets .tweet content {
+#all-tweets .tweet > content {
   /*float : bottom;*/
   order: 2;
   width: 100%;
-  flex-grow: 5;
+  flex-grow: 3;
 /*  border-radius: 10px;*/
   margin: auto;
   background-color: white;
   padding: 0.2em 0.2em;
   /*border: solid;*/
-  height: 20%;
+  min-height: 3em;
   text-align: left;
+  overflow-wrap: break-word;
 }
 
 
 #all-tweets .tweet header img {
   order : 1;
-  flex-grow: 1;
+  flex-grow: 0;
   border-radius: 3px;
   margin: auto auto auto .5em;
-  width: 6%;
-  height: 6%;
+  margin-top: .1em;
+  width: 5%;
+  height: 5%;
   text-align: center;
   /*margin: 1em 0.5em;*/
 
@@ -77,13 +80,15 @@
 
 #all-tweets .tweet header content {
   order: 2;
-  flex-grow: 3;
+  flex-grow: 1;
   /*box-sizing: content-box;*/ /*How do I fix the box so that it fills the whole thing?*/
   /*margin: 1em 1em;*/
   background-color: #d3d3d3;
   text-align: left;
   height: auto;
   margin: 0em .5em;
+  font-size: 1.5em;
+  font-weight: 700;
 
   /*flex-basis: auto;*/
 /*  width: 100%;
@@ -94,7 +99,7 @@
 
 #all-tweets .tweet header .user-info {
   order: 3;
-  flex-grow: 1;
+  flex-grow: 0;
   margin-right: .5em;
 
 }

@@ -71,6 +71,7 @@ const uploadTweets = function() {
     const char = $(this).text()
     const text = $(this).serialize()
 
+//something is wrong with this code, double clicking on tweet will let the tweet go thru even if its over character
     if (char < 0 ) {
       $('textarea').addClass('error')
       $('main.container .new-tweet .error-message').text("You are over the charater limit!")
@@ -98,6 +99,8 @@ const uploadTweets = function() {
             success: function() {
               loadTweets()
               $("textarea").val("")
+              $(".counter").text(140)
+              $(".counter").removeClass("over")
             }
           });
         }

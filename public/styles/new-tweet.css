@@ -1,6 +1,8 @@
 main .new-tweet {
   display: flex;
   flex-direction: column;
+  /*order: 2;*/
+  flex-grow: 1;
   display: none;
   width: 45em;
   border-radius: 10px;
@@ -8,7 +10,7 @@ main .new-tweet {
   background-color: #d3d3d3;
   padding: 0.5em 1em;
   border: solid #a9a9a9;
-  height: 13em;
+  height: auto;
 }
 
 .new-tweet h2 {
@@ -24,7 +26,7 @@ main .new-tweet {
   width: 100%;
   margin: auto;
   margin-top: 1em;
-  height: 5em;
+  height: auto;
   padding: .3em;
 }
 

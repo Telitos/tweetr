@@ -27,9 +27,9 @@ main.container {
   box-sizing: border-box;
   padding-top: 3em;
   width: 50em;
-  height: 100em;
+  height: auto;
   background: white;
-  margin: 10em auto ;
+  margin: 3em auto ;
 }
 
 /*
