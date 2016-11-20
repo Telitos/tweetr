@@ -1,7 +1,6 @@
 main .new-tweet {
   display: flex;
   flex-direction: column;
-  /*order: 2;*/
   flex-grow: 1;
   display: none;
   width: 90%;
@@ -53,18 +52,14 @@ main .new-tweet {
 
 
 main .counter {
-/*  need to find out how to center the text on tweet. try relative*/
   order: 3;
   flex-grow: 0;
   font-size: 1em;
-  /*text-align: center;*/
-
 }
 
 main .form .input {
   order: 1;
   flex-grow: 0;
-
 }
 
 main .counter.over{

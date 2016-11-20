@@ -1,29 +1,28 @@
 "use strict"
 
-
 $(function() {
 
   const start = 140
+  const $textarea = $("main.container textarea")
+  const $counter = $(".new-tweet .counter")
 
-
-  if ($("main.container textarea").text() > 0) {
-    $('.counter').removeClass('over')
+  if ($textarea.text() > 0) {
+    $counter.removeClass("over")
   }
 
-  $("main.container textarea").keydown(function() {
+  $textarea.keydown(function() {
 
-    //the timeout here makes sure that the first iteration
-    // of the loop only occurs once the dom has been updated
-
+    //set a timeout so that the first character is counted
+    //otherwise the lenght is only updated after the first keydown
     setTimeout(() => {
       let charNumber = $(this).val().length
       let counter = start - charNumber
-      $(".counter").text(counter)
+      $counter.text(counter)
 
       if (counter < 1) {
-        $('.counter').addClass('over')
+        $counter.addClass("over")
       } else {
-        $('.counter').removeClass('over')
+        $counter.removeClass("over")
       }
     })
   })

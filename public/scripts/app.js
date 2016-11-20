@@ -4,12 +4,11 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
-'use strict'
+"use strict"
 // Test / driver code (temporary). Eventually will get this from the server.
-$('document').ready(function() {
+$("document").ready(function() {
 
-
+//timeEllapsed function will print how long it has been since the tweet has been posted.
 const timeEllapsed = function(publicationDate) {
 
   const millisecondsEllapsed = (Date.now() - publicationDate)
@@ -38,23 +37,24 @@ const timeEllapsed = function(publicationDate) {
   return timeEllapsed
 }
 
+//rendTweets will render each tweets stored in the database on the page, reversing the order
+//of the array in the database.
 const renderTweets = function (tweets) {
 
   tweets.forEach(function(tweet) {
     const $tweet = createTweetElement(tweet)
-    $('#all-tweets').prepend($tweet);
+    $("#all-tweets").prepend($tweet);
   })
 }
 
-
-const createTweetElement = function(tweetData){
+//createTweetElement will create the html tweet element
+const createTweetElement = function(tweetData) {
 
   function escape(str) {
-    let div = document.createElement('div');
+    let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
-
 
   const user = tweetData.user
   const content = tweetData.content
@@ -86,58 +86,29 @@ const createTweetElement = function(tweetData){
   return $html
 }
 
-const uploadTweets = function() {
+//errorMessage function that will print an error message whenever the tweet
+//does not comply with min and max characters limit.
+const errorMessage = function ($element, message) {
+  const $errorMessage = $("main.container .new-tweet .error-message")
+  $element.addClass("error")
+  $errorMessage.text(message)
 
-  let $form = $("main.container .new-tweet form")
-
-  $($form).on('submit', function(event) {
-
-    event.preventDefault()
-
-    const char = $(this).text()
-    const text = $(this).serialize()
-
-//something is wrong with this code, double clicking on tweet will let the tweet go thru even if its over character
-    if (char < 0 ) {
-      $('textarea').addClass('error')
-      $('main.container .new-tweet .error-message').text("You are over the charater limit!")
-
-      setTimeout(() => {
-        $('textarea').removeClass('error');
-      }, 200)
-      setTimeout(() => {
-        $('main.container .new-tweet .error-message').text("")
-      }, 1500)
-    } else if ($("textarea").val() === "") {
-        $('textarea').addClass('error')
-        $('main.container .new-tweet .error-message').text("You didn't write anything!")
-
-        setTimeout(() => {
-          $('textarea').removeClass('error');
-        }, 200)
-        setTimeout(() => {
-          $('main.container .new-tweet .error-message').text("")}, 1500)
-      } else {
-          $.ajax({
-            url: "/tweets",
-            method: "POST",
-            data:  text,
-            success: function() {
-              loadTweets()
-              $("textarea").val("")
-              $(".counter").text(140)
-              $(".counter").removeClass("over")
-            }
-          });
-        }
-      })
+  setTimeout(() => {
+    $element.removeClass("error")
+  }, 200)
+  setTimeout(() => {
+    $errorMessage.text("")
+  }, 1500)
 }
-// when do you load the tweets? clear page first? then load tweets?
-const clearTweets = function() {
-    let $section = $("main.container #all-tweets")
-    $section.html("")
-  }
 
+//clearTweets will clear the all-tweets section on index.html
+const clearTweets = function() {
+  let $section = $("main.container #all-tweets")
+  $section.html("")
+}
+
+//loadTweets makes a get request to the server to obtain the tweets stored in the database
+//and calls renderTweets
 const loadTweets = function () {
   $.get("/tweets", function(data) {
     clearTweets()
@@ -145,9 +116,41 @@ const loadTweets = function () {
   })
 }
 
+//uploadTweets makes a post request to the server to upload a new tweet and calls
+//loadTweets upon success
+const uploadTweets = function() {
+
+  const $form = $("main.container .new-tweet form")
+
+  $($form).on("submit", function(event) {
+
+    event.preventDefault()
+
+    const $char = $(".new-tweet .counter")
+    const $text = $(this).serialize()
+    const $textarea = $(".container .new-tweet textarea")
+
+    if ($char.html() < 0 ) {
+     errorMessage($textarea, "You are over the charater limit!")
+    } else if ($textarea.val() === "") {
+      errorMessage($textarea, "You didn't write anything!")
+    } else {
+        $.ajax({
+          url: "/tweets",
+          method: "POST",
+          data:  $text,
+          success: function() {
+            loadTweets()
+            $textarea.val("")
+            $char.html(140)
+            $char.removeClass("over")
+          }
+        })
+      }
+    })
+}
 
 uploadTweets()
 loadTweets()
-
 
 })

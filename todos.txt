@@ -1,7 +1,0 @@
-1 - Clear textarea each time you hit submit. Done.
-2 - implement user message status in case of error. Done
-3 - to toggle form, think about using display: none css property. Done.
-4 - Could I set a timeout to fetch the rest of the tweets instead? Nope.
-5- NewDate().format() for the tweets
-
-Refractor.
