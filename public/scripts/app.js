@@ -73,7 +73,7 @@ const createTweetElement = function(tweetData){
         ${escape(user.handle)}
       </div>
     </header>
-    <content>
+    <content class = "text">
       ${escape(content.text)}
     </content>
     <footer>

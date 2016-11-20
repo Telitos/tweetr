@@ -26,7 +26,7 @@ main.container {
   flex-direction: column;
   box-sizing: border-box;
   padding-top: 3em;
-  width: 50em;
+  width: 75%;
   height: auto;
   background: white;
   margin: 3em auto ;

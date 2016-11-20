@@ -4,13 +4,12 @@
   flex: 1;
   flex-direction: column;
   border-radius: 10px;
-  width: 45em;
+  width: 90%;
   margin: 1em auto;
   background-color: #d3d3d3;
   padding: 0em;
   border: solid #a9a9a9;
   border-width: 0.05em;
-  /*height: auto;*/
 }
 
 #all-tweets .tweet:hover {
@@ -21,17 +20,13 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  /*float : top;*/
   order: 1;
   width: 100%;
   flex-grow: 2;
   border-radius: 10px 10px 0px 0px;
   margin: auto;
   background-color: #d3d3d3;
-  /*padding: 0.2em 0.2em;*/
   border-bottom: solid #d3d3d3;
-  /*height: 20%;*/
-  text-align: center
 }
 
 #all-tweets .tweet footer {
@@ -47,18 +42,16 @@
   border-top: solid #d3d3d3;
   height: auto;
   text-align: left;
+  font-size: .7em;
 }
 
-#all-tweets .tweet > content {
-  /*float : bottom;*/
+#all-tweets .tweet .text {
   order: 2;
   width: 100%;
   flex-grow: 3;
-/*  border-radius: 10px;*/
   margin: auto;
   background-color: white;
   padding: 0.2em 0.2em;
-  /*border: solid;*/
   min-height: 3em;
   text-align: left;
   overflow-wrap: break-word;
@@ -70,51 +63,39 @@
   flex-grow: 0;
   border-radius: 3px;
   margin: auto auto auto .5em;
-  margin-top: .1em;
   width: 5%;
   height: 5%;
-  text-align: center;
-  /*margin: 1em 0.5em;*/
-
 }
 
 #all-tweets .tweet header content {
   order: 2;
   flex-grow: 1;
-  /*box-sizing: content-box;*/ /*How do I fix the box so that it fills the whole thing?*/
-  /*margin: 1em 1em;*/
   background-color: #d3d3d3;
   text-align: left;
   height: auto;
-  margin: 0em .5em;
+  margin: 0em 0.5em;
   font-size: 1.5em;
   font-weight: 700;
-
-  /*flex-basis: auto;*/
-/*  width: 100%;
-  height: 100%;*/
-  /*margin:*/
+  padding-bottom: 0.5em;
 
 }
 
 #all-tweets .tweet header .user-info {
   order: 3;
   flex-grow: 0;
-  margin-right: .5em;
-
+  margin-right: 0.5em;
 }
 
 #all-tweets .tweet footer ._from {
   flex-grow: 1;
-  /*float: left;*/
   margin: auto;
 }
 
 #all-tweets .tweet footer i {
   visibility: hidden;
   flex-grow: 0;
-  margin: .2em;
-  font-size: 20px;
+  margin: 0.2em;
+  font-size: 1.6em;
   color: #00a087 ;
 }
 

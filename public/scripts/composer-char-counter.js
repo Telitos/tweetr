@@ -12,8 +12,6 @@ $(function() {
 
   $("main.container textarea").keydown(function() {
 
-
-
     //the timeout here makes sure that the first iteration
     // of the loop only occurs once the dom has been updated
 
