@@ -77,7 +77,7 @@ const createTweetElement = function(tweetData) {
       ${escape(content.text)}
     </content>
     <footer>
-      <p class="_from">${escape(date)}</p>
+      <p class="_from">${(date)}</p>
       <i class="fa fa-flag"></i>
       <i class="fa fa-retweet"></i>
       <i class="fa fa-heart"></i>
