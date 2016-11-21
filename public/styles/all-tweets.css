@@ -4,12 +4,13 @@
   flex-direction: column;
   flex-wrap: wrap;
   border-radius: 10px;
-  width: 90%;
+  width: 25em;
   margin: 1em auto;
   background-color: #d3d3d3;
   padding: 0em;
   border: solid #a9a9a9;
   border-width: 0.05em;
+  min-height: 11em;
 }
 
 #all-tweets .tweet:hover {
