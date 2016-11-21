@@ -126,11 +126,11 @@ const uploadTweets = function() {
 
     event.preventDefault()
 
-    const $char = $(".new-tweet .counter").html()
+    const $char = $(".new-tweet .counter")
     const $text = $(this).serialize()
     const $textarea = $(".container .new-tweet textarea")
 
-    if ($char < 0 ) {
+    if ($char.html() < 0 ) {
      errorMessage($textarea, "You are over the charater limit!")
     } else if ($textarea.val().trim() === "") {
         errorMessage($textarea, "You didn't write anything!")
@@ -141,7 +141,7 @@ const uploadTweets = function() {
           data:  $text,
           success: function() {
             loadTweets()
-            $char.val("")
+            $textarea.val("")
             $char.html(140)
             $char.removeClass("over")
           }
