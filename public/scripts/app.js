@@ -126,8 +126,7 @@ const uploadTweets = function() {
 
     event.preventDefault()
 
-    const $char = $(".new-tweet .counter")
-    // const $char = $("main.container textarea").val().trim().length
+    const $char = $(".new-tweet .counter").html()
     const $text = $(this).serialize()
     const $textarea = $(".container .new-tweet textarea")
 
